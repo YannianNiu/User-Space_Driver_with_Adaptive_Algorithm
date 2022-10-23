@@ -1,5 +1,5 @@
-# User-Space_Driver_with_Adaptive_Algorithm
-This is a upgrade version of the repository <User-Space Driver with Assembler>, we integrated an adaptive assembling size algorithm in the user-space driver to get a higher data throughput.
+# User-Space Driver with Adaptive Algorithm
+This is a upgrade version of the repository <User-Space Driver with Assembler>, we integrated an adaptive assembling size algorithm in the user-space driver to cope with small-packet-intensive scenarios with abrupt data traffic.
 
 One of the corresponding papers "Throughput-Efficient Communication Device Driver for IoT Gateways" has been accepted by 2022 IEEE International Conference on Systems, Man, and Cybernetics(SMC). The other one of the papers "Assembler: A Throughput-Efficient Module for Network Driver of Edge Computing Gateways" has been accepted by the 23rd Asia-Pacific Network Operations and Management Symposium (APNOMS). However, both of them are not yet searchable on Xplore, please wait for a moment.
 
@@ -22,3 +22,5 @@ Running Steps:
 5. Using "gcc memory.c vfio.c stats.c –o driver_forwarding -lpthread" to compile the code file.
 
 6. Using "./driver_forwarding 0000:02:01.0" to run the user-space driver forwarding test.
+
+7. You can also use "taskset -c 0 ./driver_forwarding 0000:02:01.0" to bind forwarding threads to a cpu core to exploit CPU affinity for efficiency.
